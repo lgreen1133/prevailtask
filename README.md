@@ -1,9 +1,9 @@
-== README
+## Prevail Health
 
 **This repo should provide the following:**
 
 * One Rails application
 
-* Two domains (students.com and professors.com)
+* Content served for two domains (students.com and professors.com)
 
 * Authentication via Devise 
