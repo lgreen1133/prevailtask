@@ -1,0 +1,8 @@
+
+  <h1>Welcome</h1>
+  <% if current_user %>
+    Go to your <%= link_to "account", current_user %>
+  <% else %>
+     <%= link_to "Sign In", new_user_session_path, class: 'btn btn-info' %> or
+     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info' %> today!
+  <% end %>
