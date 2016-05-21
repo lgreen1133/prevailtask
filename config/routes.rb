@@ -1,15 +1,23 @@
+# Rails.application.routes.draw do
+#   devise_for :users
+#     resources :users
+#
+#   get 'welcome/index'
+#
+#
+#
+#   root to: 'welcome#index'
+# end
+require "#{Rails.root}/lib/domain_constraint.rb"
+
 Rails.application.routes.draw do
   devise_for :users
-    resources :users
 
-  get 'welcome/index'
+  constraints DomainConstraint.new([:professors_domain]) do
+    resources :professors
+  end
 
-  # Routes namespace something like this?
-  # namespace :professor do
-  #   root to: 'welcome#index'
-  # end
-  # namespace :student do
-  #   root to: 'welcome#index'
-  # end
-  root to: 'welcome#index'
+  constraints DomainConstraint.new([:students_domain]) do
+    resources :students
+  end
 end

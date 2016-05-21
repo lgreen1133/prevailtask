@@ -1,0 +1,4 @@
+development:
+  professors_domain: professors.dev
+  students_domain: students.dev
+  # Using Pow to easily test these in my local environment
