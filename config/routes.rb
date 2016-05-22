@@ -3,14 +3,6 @@ require "#{Rails.root}/lib/constraints/domain_constraint.rb"
 Rails.application.routes.draw do
   devise_for :users
 
-  # namespace :students do
-  # get 'students/index'
-  # end
-  #
-  # namespace :professors do
-  # get 'professors/index'
-  # end
-
   constraints DomainConstraint.new([:professors_domain]) do
     resources :professors, controller: "professors/professors"
     get '/' => 'professors#index'
