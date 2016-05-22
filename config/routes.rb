@@ -1,23 +1,25 @@
-# Rails.application.routes.draw do
-#   devise_for :users
-#     resources :users
-#
-#   get 'welcome/index'
-#
-#
-#
-#   root to: 'welcome#index'
-# end
-require "#{Rails.root}/lib/domain_constraint.rb"
+require "#{Rails.root}/lib/constraints/domain_constraint.rb"
 
 Rails.application.routes.draw do
   devise_for :users
 
+  # namespace :students do
+  # get 'students/index'
+  # end
+  #
+  # namespace :professors do
+  # get 'professors/index'
+  # end
+
   constraints DomainConstraint.new([:professors_domain]) do
-    resources :professors
+    resources :professors, controller: "professors/professors"
+    get '/' => 'professors#index'
   end
 
   constraints DomainConstraint.new([:students_domain]) do
-    resources :students
+    resources :students, controller: "students/students"
+    get '/' => 'students#index'
   end
+
+  root to: 'welcome#index'
 end

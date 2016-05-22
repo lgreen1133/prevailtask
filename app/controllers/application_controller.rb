@@ -8,18 +8,18 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def determine_role
-    if current_user.student?
-      redirect_to 'students'
-    elsif current_user.professor?
-      redirect_to 'professors'
-    else
-      redirect_to :new_user_session_path
-    end
-  end
+  # def determine_role
+  #   if current_user.student?
+  #     redirect_to 'students/students'
+  #   elsif current_user.professor?
+  #     redirect_to 'professors/professors'
+  #   else
+  #     redirect_to :new_user_session_path
+  #   end
+  # end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up)
-    devise_parameter_sanitizer.for(:account_update)
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name,:last_name, :date_of_birth, :email, :password, :role) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name,:last_name, :date_of_birth, :email, :password, :role) }
   end
 end

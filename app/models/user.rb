@@ -5,11 +5,9 @@ class User < ActiveRecord::Base
 
   has_many :subjects
 
-  def student?
-    role == 'student'
-  end
+  ROLES = %w[professor student]
 
-  def professor?
-    role == 'professor'
+  def role_symbols
+    [role.to_sym]
   end
 end

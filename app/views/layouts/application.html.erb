@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <ul class="nav nav-tabs">
-      <li><%= link_to "Home", welcome_index_path %></li>
+      
       <% if current_user %>
         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
       <% end %>
