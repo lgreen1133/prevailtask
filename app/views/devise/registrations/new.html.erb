@@ -31,7 +31,7 @@
       </div>
       <div class="form-group">
         <%= f.label :role %>
-        <%= f.collection_select :role, User::ROLES, :to_s, :titleize %>
+        <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
       </div>
       <div class="form-group">
         <%= f.submit "Sign up", class: 'btn btn-success' %>

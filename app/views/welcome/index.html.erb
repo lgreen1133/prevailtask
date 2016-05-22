@@ -1,8 +1,14 @@
-
-  <h1>Welcome</h1>
-  <% if current_user %>
+<h1>Welcome | Dashboard</h1>
+<% if current_user %>
+  <% case current_user.role %>
+  <% when 'professor' %>
+    <h3>Hello Professor <%= current_user.last_name %></h3>
     Edit your <%= link_to "account", edit_user_registration_path %>
-  <% else %>
-     <%= link_to "Sign In", new_user_session_path, class: 'btn btn-info' %> or
-     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info' %> today!
+  <% when 'student' %>
+    <h3>Hello <%= current_user.first_name %></h3>
+    Edit your <%= link_to "account", edit_user_registration_path %>
   <% end %>
+<% else %>
+  <%= link_to "Sign In", new_user_session_path, class: 'btn btn-info' %> or
+  <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info' %> today!
+<% end %>
