@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.2'
+gem 'rails', '5.2.2.1'
 
 group :production do
   gem 'pg'
@@ -53,6 +53,6 @@ group :development do
   gem 'letter_opener'
 end
 
-gem 'devise', '4.5.0'
+gem 'devise', '>= 4.6.0'
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.3.1'
