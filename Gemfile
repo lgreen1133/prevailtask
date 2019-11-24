@@ -53,6 +53,6 @@ group :development do
   gem 'letter_opener'
 end
 
-gem 'devise', '4.5.0'
+gem 'devise', '4.7.1'
 
 gem 'bootstrap-sass'
